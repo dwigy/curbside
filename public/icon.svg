@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="glow" cx="256" cy="316" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6c56b" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#e8a33d" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#e8a33d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd98a"/>
+      <stop offset="1" stop-color="#e8a33d"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a736b"/>
+      <stop offset="1" stop-color="#4a4541"/>
+    </linearGradient>
+    <clipPath id="above">
+      <rect x="0" y="0" width="512" height="318"/>
+    </clipPath>
+  </defs>
+  <rect width="512" height="512" fill="#2a2622"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+  <!-- rays -->
+  <g stroke="#f6c56b" stroke-width="14" stroke-linecap="round" opacity="0.9">
+    <line x1="256" y1="132" x2="256" y2="160"/>
+    <line x1="150" y1="176" x2="168" y2="194"/>
+    <line x1="362" y1="176" x2="344" y2="194"/>
+    <line x1="104" y1="270" x2="130" y2="274"/>
+    <line x1="408" y1="270" x2="382" y2="274"/>
+  </g>
+  <!-- rising sun, clipped at the curb line -->
+  <circle cx="256" cy="318" r="100" fill="url(#sun)" clip-path="url(#above)"/>
+  <!-- the curb: sidewalk top face, lit edge, curb face -->
+  <path d="M72 318 H440 L460 338 H52 Z" fill="#b8b0a4"/>
+  <path d="M52 338 H460 V384 H52 Z" fill="url(#face)"/>
+  <rect x="52" y="336" width="408" height="5" fill="#f6c56b"/>
+  <path d="M52 384 H460 V398 H52 Z" fill="#1c1a18" opacity="0.6"/>
+  <!-- road below -->
+  <rect x="96" y="420" width="72" height="12" rx="6" fill="#5c5750"/>
+  <rect x="220" y="420" width="72" height="12" rx="6" fill="#5c5750"/>
+  <rect x="344" y="420" width="72" height="12" rx="6" fill="#5c5750"/>
+</svg>
