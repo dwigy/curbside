@@ -110,7 +110,7 @@ export function runBatch(start: GameState, action: Action, opts: BatchOptions): 
     s = r.state;
     iterations++;
     earned += (s.counters.earned ?? 0) - before;
-    for (const l of r.log) if (l.kind !== 'info') highlights.push(l);
+    for (const l of r.log) if (l.kind !== 'info' && l.kind !== 'warn') highlights.push(l);
     if (s.newWarnings.length) {
       warnings.push(...s.newWarnings);
     }

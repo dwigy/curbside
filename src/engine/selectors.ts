@@ -163,11 +163,12 @@ export function theftChance(s: GameState): number {
   const base = B.theft.nightly[tierOf(s)];
   const low = s.cash < B.theft.lowCashThreshold ? B.theft.lowCashMult : 1;
   const smarts = 1 - s.skills.streetSmarts / B.theft.streetSmartsDivisor;
-  return s.cash <= 0 ? 0 : r2(base * low * smarts * 10000) / 10000;
+  if (s.cash <= 0 || s.day < B.theft.graceDays) return 0;
+  return r2(base * low * smarts * 10000) / 10000;
 }
 
 export function bikeTheftChance(s: GameState): number {
-  if (!hasItem(s, 'bike') || hasItem(s, 'bike_lock') || tierOf(s) === 'room') return 0;
+  if (!hasItem(s, 'bike') || hasItem(s, 'bike_lock') || tierOf(s) === 'room' || s.day < B.theft.graceDays) return 0;
   return B.theft.bikeNoLockNightly;
 }
 

@@ -108,6 +108,8 @@ export const BALANCE = {
     takeMin: 0.35,
     takeMax: 0.75,
     bikeNoLockNightly: 0.03,
+    /** No theft in the first week: let the player learn the ropes first. */
+    graceDays: 7,
   },
 
   events: {
