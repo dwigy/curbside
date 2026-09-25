@@ -113,13 +113,18 @@ function EventSheet({ g }: { g: GameState }) {
           const av = choiceAvailable(g, c);
           if (!av.visible) return null;
           const p = c.chance !== undefined ? resolveChance(c.chance, g) : null;
+          // Expected value for gambles: shown whenever a paid choice has odds.
+          const ev = p !== null && c.costCash ? p * (c.success.effects?.cash ?? 0) + (1 - p) * (c.failure?.effects?.cash ?? 0) - c.costCash : null;
           return (
             <button key={i} className="choice" disabled={!av.ok} onClick={() => dispatch({ type: 'choose', choice: i })}>
               <span className="grow">
                 {fill(c.label, g)}
                 {(c.costCash || !av.ok) && <small>{!av.ok ? av.reason : t('event.costs', { cost: money(c.costCash!) })}</small>}
               </span>
-              {p !== null && <span className="chip warn odds">{t('event.odds', { p: pct(p) })}</span>}
+              <span className="stack" style={{ gap: 4, alignItems: 'flex-end' }}>
+                {p !== null && <span className="chip warn odds">{t('event.odds', { p: pct(p) })}</span>}
+                {ev !== null && <span className={`chip odds ${ev < 0 ? 'bad' : 'good'}`}>{t('event.ev', { ev: `${ev < 0 ? '−' : '+'}${money(Math.abs(Math.round(ev * 100) / 100))}` })}</span>}
+              </span>
             </button>
           );
         })}

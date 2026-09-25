@@ -194,6 +194,7 @@ export const STRINGS_EN = {
   'outcome.failure': 'It didn’t work out.',
   'event.odds': '{p} chance',
   'event.costs': 'Costs {cost}',
+  'event.ev': 'EV {ev}',
   'warnings.title': 'Heads up',
   'dog.title': 'Name your dog',
   'dog.body': 'They’re going to need a name.',
