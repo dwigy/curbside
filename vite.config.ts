@@ -40,5 +40,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     include: ['src/**/*.test.ts'],
+    // Simulation tests run whole bot lives; CI runners are slower than dev machines.
+    testTimeout: 120_000,
   },
 });
