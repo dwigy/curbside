@@ -4,7 +4,7 @@
 
 Curbside is a text-forward life sim about climbing from homelessness to stability and, later, to wealth. It's hard but fair. It runs in the browser, installs as an app, and works fully offline. It has no ads, no purchases and no accounts.
 
-- **Play:** https://&lt;your-github-user&gt;.github.io/curbside/ (install it from the browser's "Add to Home Screen")
+- **Play:** https://dwigy.github.io/curbside/ (install it from the browser's "Add to Home Screen")
 - **Status:** v0.1.0, the Act I vertical slice (the street, the shelter, your first rented room). See [CHANGELOG.md](CHANGELOG.md).
 - **Design:** [docs/DESIGN.md](docs/DESIGN.md) · **Numbers:** [docs/BALANCE.md](docs/BALANCE.md)
 
@@ -34,7 +34,7 @@ Every push to `main` runs the tests, builds, and deploys to GitHub Pages via `.g
 One-time setup: in the repo's **Settings → Pages**, set Source to **GitHub Actions**. Or run:
 
 ```bash
-gh api -X POST repos/<user>/curbside/pages -f build_type=workflow
+gh api -X POST repos/dwigy/curbside/pages -f build_type=workflow
 ```
 
 ## Debug menu
